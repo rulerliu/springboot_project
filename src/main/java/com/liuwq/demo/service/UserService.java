@@ -10,7 +10,14 @@ public interface UserService {
     ResponseVo register(User user);
 
     /**
-     * 登录
+     * 登录生成token
      */
-    ResponseVo login(String username, String password);
+    ResponseVo<String> login(String username, String password);
+
+    /**
+     * 登陆根据token获取用户信息
+     * @param token
+     * @return
+     */
+    ResponseVo<User> getInfo(String token);
 }

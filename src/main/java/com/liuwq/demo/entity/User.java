@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.io.Serializable;
 import java.util.Date;
 
 // 生成set，get方法
@@ -16,7 +17,7 @@ import java.util.Date;
 // 生成有参构造函数
 @AllArgsConstructor
 @Mapper
-public class User {
+public class User implements Serializable {
 
     private Integer id;
 
