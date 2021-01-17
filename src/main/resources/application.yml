@@ -3,12 +3,11 @@ mybatis:
   mapperLocations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 server:
   port: 8085
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-
-
 
 spring:
   datasource:
@@ -18,23 +17,24 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password: 123456
-    jedis:
-      pool:
-        max-active: 8
-        max-wait: -1
-        max-idle: 500
-        min-idle: 0
-    lettuce:
-      shutdown-timeout: 0
-        # pagehelper
-        pagehelper:
-          helperDialect: mysql
-          reasonable: true
-          supportMethodsArguments: true
-          params: count=countSql
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: 123456
+  jedis:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 500
+      min-idle: 0
+  lettuce:
+    shutdown-timeout: 0
 
 
+
+# pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
