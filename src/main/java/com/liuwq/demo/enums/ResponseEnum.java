@@ -26,6 +26,8 @@ public enum ResponseEnum {
 	VALIDATE_FAILED(13, "参数检验失败"),
 	PROODUCT_STOCK_ERROR(15, "库存不正确"),
 	PRODUCT_NOT_EXIST(14, "商品不存在"),
+
+	CART_PRODUCT_NOT_EXIST(16, "购物车里无此商品"),
 	;
 
 	Integer code;
