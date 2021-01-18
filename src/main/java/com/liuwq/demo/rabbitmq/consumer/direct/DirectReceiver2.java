@@ -12,7 +12,7 @@ public class DirectReceiver2 {
  
     @RabbitHandler
     public void process(Map testMessage) {
-        System.out.println("DirectReceiver 2  消费者收到消息  : " + testMessage.toString());
+        System.out.println("DirectReceiver 2  0118消费者收到消息  : " + testMessage.toString());
     }
  
 }

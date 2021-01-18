@@ -46,7 +46,7 @@ public class TopicRabbitConfig {
     // 这样只要是消息携带的路由键是以topic.开头,都会分发到该队列
     @Bean
     Binding bindingExchangeMessage2() {
-        return BindingBuilder.bind(secondQueue()).to(exchange()).with("topic.#");
+        return BindingBuilder.bind(secondQueue()).to(exchange()).with("topic.#1");
     }
  
 }

@@ -24,6 +24,8 @@ public enum ResponseEnum {
 	PRODUCT_OFF_SALE_OR_DELETE(12, "商品下架或删除"),
 
 	VALIDATE_FAILED(13, "参数检验失败"),
+	PROODUCT_STOCK_ERROR(15, "库存不正确"),
+	PRODUCT_NOT_EXIST(14, "商品不存在"),
 	;
 
 	Integer code;
