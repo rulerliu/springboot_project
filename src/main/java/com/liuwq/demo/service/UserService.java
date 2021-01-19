@@ -1,5 +1,6 @@
 package com.liuwq.demo.service;
 
+import com.liuwq.demo.common.CommonPage;
 import com.liuwq.demo.entity.User;
 import com.liuwq.demo.vo.ResponseVo;
 
@@ -20,4 +21,6 @@ public interface UserService {
      * @return
      */
     ResponseVo<User> getInfo(String token);
+
+    ResponseVo<CommonPage> getUserList(Integer loginUserId, Integer pageNum, Integer pageSize);
 }

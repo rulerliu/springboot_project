@@ -1,6 +1,8 @@
 package com.liuwq.demo.service.impl;
 
-import com.liuwq.demo.annotation.MyAnnotation;
+import com.github.pagehelper.PageHelper;
+import com.liuwq.demo.annotation.RedisCache;
+import com.liuwq.demo.common.CommonPage;
 import com.liuwq.demo.dao.UserMapper;
 import com.liuwq.demo.entity.User;
 import com.liuwq.demo.enums.ResponseEnum;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -86,7 +89,6 @@ public class UserServiceImpl implements UserService {
 
     };*/
 
-    @MyAnnotation(name = "lzl", age = "2")
     public ResponseVo<String> login(String username, String password){
         User user =  userMapper.selectByUsername(username);
         if(user!=null){
@@ -115,7 +117,18 @@ public class UserServiceImpl implements UserService {
         }
         return ResponseVo.error(ResponseEnum.TOKEN_INVALID_ERROR);
 
-    };
+    }
+
+    @Override
+    @RedisCache(keyPrefix = "mall_user_getUserList")
+    public ResponseVo<CommonPage> getUserList(Integer loginUserId, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> userList = userMapper.getUserList();
+        CommonPage<User> userCommonPage = CommonPage.restPage(userList);
+        return ResponseVo.success(userCommonPage);
+    }
+
+    ;
 
     /*public static void main(String[] args) {
         String s = UUID.randomUUID().toString();
