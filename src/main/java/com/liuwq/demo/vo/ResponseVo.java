@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.liuwq.demo.enums.ResponseEnum;
 import lombok.Data;
 
-import java.io.Serializable;
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ResponseVo<T> implements Serializable {
+public class ResponseVo<T> {
     private Integer status;
 
     private String msg;
 
     private T data;
+
+    private ResponseVo() {}
 
     private ResponseVo(Integer status, String msg) {
         this.status = status;

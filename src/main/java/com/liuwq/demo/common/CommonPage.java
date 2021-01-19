@@ -4,11 +4,10 @@ package com.liuwq.demo.common;
 import com.github.pagehelper.PageInfo;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class CommonPage<T> implements Serializable {
+public class CommonPage<T> {
     private Integer pageNum;
     private Integer pageSize;
     private Integer totalPage;
